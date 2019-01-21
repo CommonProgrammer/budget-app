@@ -29,3 +29,15 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'io.projectreactor:reactor-test'
 }
+
+test {
+    useJUnit {
+        exclude '**/*IntegrationTest.class'
+    }
+}
+
+task integrationTest(type: Test) {
+    useJUnit {
+        include '**/*IntegrationTest.class'
+    }
+}
